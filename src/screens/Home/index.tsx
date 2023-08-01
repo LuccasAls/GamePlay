@@ -47,8 +47,7 @@ export function Home(){
     }
 
     return(
-        <Background>
-            <View>
+            <Background>
 
                 <View style={styles.header}>
                     <Profile/>
@@ -79,7 +78,6 @@ export function Home(){
                 </View>
                 
 
-            </View>
-        </Background>
+            </Background>
     )
 }
