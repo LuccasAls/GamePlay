@@ -6,9 +6,10 @@ import {
 } from 'react-native';
 import { styles } from './style';
 import Illustration from '../../assets/illustration.png'
-import { ButtonIcon } from '../../components/ButtonIcon/ButtonIcon';
+import { ButtonIcon } from '../../components/ButtonIcon';
 import { useNavigation } from '@react-navigation/native';
 import { Background } from '../../components/Background';
+import { StatusBar } from 'expo-status-bar';
 
 export function SingIn() {
     const  navigation = useNavigation()
@@ -20,6 +21,7 @@ export function SingIn() {
 
     return (
         <Background>
+        
             <View style={styles.container}>
 
             

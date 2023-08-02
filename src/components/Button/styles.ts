@@ -15,8 +15,9 @@ export const styles = StyleSheet.create({
         flex: 1,
         color: theme.color.heading,
         fontSize: 15,
-        fontFamily: theme.fonts.text500,
         textAlign: 'center',
+        fontFamily: theme.fonts.text500,
+
     },
     iconWrapper: {
         width: 56,
@@ -28,7 +29,7 @@ export const styles = StyleSheet.create({
     },
     icon: {
         width: 24,
-        height: 18
-        ,
-    }
+        height: 18,
+    },
+   
 })
