@@ -6,14 +6,15 @@ import {
     View, 
     ScrollView,
     KeyboardAvoidingView,
-    Platform
+    Platform,
+    Modal
 } from 'react-native';
 
 import { styles } from './styles';
 
 import { theme } from '../../global/styles/theme';
 
-
+import { ModalView } from '../../components/ModalView';
 import { Background } from '../../components/Background';
 import { Header } from '../../components/Header';
 import { CategorySelect } from '../../components/CategorySelect';
@@ -21,10 +22,23 @@ import { GuildIcon } from '../../components/GuildIcon'
 import { SmallInput } from '../../components/SmallInput';
 import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button/';
+import { Guilds } from '../Guilds';
+import { GuildsProps } from '../../components/Guild';
 
 export function AppointmentCreate() {
 
   const [ category, setCategory ] = useState('')
+  const [ openGuildModal, setOpenGuildModal ] = useState(false);
+  const [ guild, setGuild ] = useState<GuildsProps>({} as GuildsProps);
+
+  function handelOpenGuilds() {
+    setOpenGuildModal(true)
+  }
+  function handelGuildSelect(guildSelect: GuildsProps) {
+    setGuild(guildSelect)
+    setOpenGuildModal(false)
+
+  }
 
   return (
     <KeyboardAvoidingView 
@@ -54,16 +68,17 @@ export function AppointmentCreate() {
 
         <View style={styles.form}>
 
-          <RectButton>
+          <RectButton onPress={handelOpenGuilds}>
             <View style={styles.select}>
 
               {             
-                /*<View style={styles.image}/>*/
-                <GuildIcon />
+                 guild.icon 
+                 ? <GuildIcon /> 
+                 : <View style={styles.image}/>
               }
 
               <View style={styles.selectBody}>
-                <Text style={styles.label}>Selecione um servidor</Text>
+                <Text style={styles.label}>{ guild.name ? guild.name : 'Selecione um servidor'}</Text>
               </View>
 
               <Feather 
@@ -121,6 +136,11 @@ export function AppointmentCreate() {
         </View>
 
       </ScrollView>
+      
+      <ModalView visible={openGuildModal}>
+        <Guilds handleGuildSelect={handelGuildSelect}/>
+      </ModalView>
+
       </Background>
 
     </KeyboardAvoidingView>

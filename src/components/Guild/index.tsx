@@ -1,8 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, TouchableOpacityProps, View, Text } from 'react-native';
+import { Feather } from '@expo/vector-icons'
 
 import { styles } from './styles';
 import { GuildIcon } from '../GuildIcon';
+import { theme } from '../../global/styles/theme';
 
 export type GuildsProps = {
   id: string,
@@ -15,7 +17,7 @@ type Props = TouchableOpacityProps & {
   data: GuildsProps;
 }
 
-export function Guilds({data, ...rest}: Props) {
+export function Guild({data, ...rest}: Props) {
   return (
     <TouchableOpacity 
       {...rest}
@@ -33,6 +35,11 @@ export function Guilds({data, ...rest}: Props) {
           </Text>
         </View>
       </View>
+      <Feather 
+        name='chevron-right'
+        color={theme.color.heading}
+        size={24}
+      />
     </TouchableOpacity>
   );
 }

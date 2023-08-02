@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image:{
-    width: 64,
+    width: 70,
     height: 68,
     backgroundColor: theme.color.secondary70,
     borderWidth: 1,
