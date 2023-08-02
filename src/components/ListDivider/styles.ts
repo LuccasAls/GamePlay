@@ -6,9 +6,9 @@ export const styles = StyleSheet.create({
        width: '77%',
        height: 1,
        backgroundColor: theme.color.secondary40,
-       marginTop: 2,
-       marginVertical: 30,
-       alignSelf: 'flex-end'
+       marginTop: 5,
+       alignSelf: 'flex-end',
+       marginVertical: 12,
     },
 
 })
